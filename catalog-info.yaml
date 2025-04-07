@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: azure-bar-gitops
+  description: This is GitOps manifest for azure-bar   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: rhtap/gitops=azure-bar
+    backstage.io/kubernetes-id: azure-bar 
+    backstage.io/techdocs-ref: dir:.
+    dev.azure.com/project-repo: tnevrlka-rhtap/azure-bar-gitops
+    dev.azure.com/project: shared-public
+    dev.azure.com/build-definition: tnevrlka-rhtap.azure-bar-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:azure-bar
